@@ -9,9 +9,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Project } from './types/Index'; // Import the shared Project type
 
 export default function App() {
-    const [selectedProject, setSelectedProject] = useState<any>(null); // Replace 'any' with a Project type if you define one
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -24,7 +25,7 @@ export default function App() {
         return () => clearTimeout(timer);
     }, []);
 
-    const handleProjectClick = (project: any) => { // Replace 'any'
+    const handleProjectClick = (project: Project) => {
         setSelectedProject(project);
         document.body.style.overflow = 'hidden';
     };

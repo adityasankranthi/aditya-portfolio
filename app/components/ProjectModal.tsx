@@ -1,11 +1,8 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-
-interface Project {
-  title: string;
-  longDescription: string;
-  modalImageUrl: string;
-}
+import Image from 'next/image';
+import type { Project } from '../types/Index';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -36,7 +33,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                     <button onClick={onClose} className="text-text-muted hover:text-text text-3xl leading-none">&times;</button>
                 </div>
                 <div className="p-6 overflow-y-auto">
-                    <img src={project.modalImageUrl} alt={project.title} className="w-full h-auto rounded-lg mb-6" />
+                    <div className="relative w-full h-auto aspect-video mb-6 rounded-lg overflow-hidden">
+                        <Image src={project.modalImageUrl} alt={project.title} layout="fill" className="object-cover" />
+                    </div>
                     <p className="text-text-muted">{project.longDescription}</p>
                 </div>
                 <div className="p-4 border-t border-white/10 text-right">

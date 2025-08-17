@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image'; // Import Next.js Image component
 
 const About = () => (
     <section id="about" className="py-24 sm:py-32">
@@ -22,14 +23,17 @@ const About = () => (
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: 'spring', stiffness: 300 }}
                         >
-                            {/* IMPORTANT: Place your photo 'aditya-photo.png' 
-                                inside the 'public' directory at the root of your project.
-                            */}
-                            <img src="/aditya-photo.png" alt="Aditya Sankranthi" className="w-full h-full object-cover" />
+                            <Image 
+                                src="/aditya-photo.png" 
+                                alt="Aditya Sankranthi" 
+                                width={256} 
+                                height={256}
+                                className="w-full h-full object-cover" 
+                            />
                         </motion.div>
                     </div>
                     <div className="md:col-span-2 text-lg text-text-muted space-y-6">
-                        <p>Hello! I'm Aditya, a software engineer with a global perspective, driven by a passion for building elegant and impactful digital solutions. My academic journey began at the <strong className="text-accent">University of Rome "Tor Vergata"</strong> and culminated in a master's from the <strong className="text-accent">University of Wisconsin-Milwaukee</strong>—the same alma mater as Microsoft's CEO, Satya Nadella.</p>
+                        <p>Hello! I&apos;m Aditya, a software engineer with a global perspective, driven by a passion for building elegant and impactful digital solutions. My academic journey began at the <strong className="text-accent">University of Rome &quot;Tor Vergata&quot;</strong> and culminated in a master&apos;s from the <strong className="text-accent">University of Wisconsin-Milwaukee</strong>—the same alma mater as Microsoft&apos;s CEO, Satya Nadella.</p>
                         <p>This diverse background has equipped me with a unique approach to problem-solving. I specialize in full-stack development, transforming complex challenges into seamless, user-centric applications. I thrive on clean code, scalable architecture, and continuous learning.</p>
                     </div>
                 </div>
