@@ -1,4 +1,3 @@
-
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -19,37 +18,19 @@ const cardVariants = {
 const Contact = () => (
     <section id="contact" className="py-24 sm:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                className="text-center"
-            >
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="text-center">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-text">Get In Touch</h2>
                 <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded"></div>
                 <div className="max-w-xl mx-auto">
-                    <p className="text-lg text-text-muted my-8">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
+                    <p className="text-lg text-text-muted my-8">I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
                     <a href="mailto:srgaditya@gmail.com" className="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-neon-accent">
                         Say Hello
                     </a>
                     <div className="flex justify-center space-x-6 mt-12">
-                        <motion.a 
-                            href="https://github.com/adityasankranthi" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            whileHover={{ scale: 1.1, y: -2 }} 
-                            className="text-text-muted hover:text-accent transition-colors"
-                        >
+                        <motion.a href="https://github.com/adityasankranthi" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
                             <GitHubIcon />
                         </motion.a>
-                        <motion.a 
-                            href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            whileHover={{ scale: 1.1, y: -2 }} 
-                            className="text-text-muted hover:text-accent transition-colors"
-                        >
+                        <motion.a href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
                             <LinkedInIcon />
                         </motion.a>
                     </div>

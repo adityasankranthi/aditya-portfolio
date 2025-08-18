@@ -29,6 +29,7 @@ const About = () => (
                                 width={256} 
                                 height={256}
                                 className="w-full h-full object-cover" 
+                                priority // Add priority to hint Next.js to load this image faster
                             />
                         </motion.div>
                     </div>

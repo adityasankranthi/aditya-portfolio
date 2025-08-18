@@ -7,7 +7,6 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Aditya Sankranthi",
   description: "Futuristic portfolio of Aditya Sankranthi, a software engineer.",
-  // The 'icons' property is used by Next.js to automatically add the favicon links.
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
@@ -21,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={spaceGrotesk.className}>{children}</body>
     </html>
   );

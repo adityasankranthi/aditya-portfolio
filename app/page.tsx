@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Project } from './types/Index'; // Import the shared Project type
+import type { Project } from './types/index'; // Import the shared Project type
 
 export default function App() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);

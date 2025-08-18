@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import type { Project } from '../types';
 import Image from 'next/image';
-import type { Project } from '../types/Index';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -34,12 +34,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 </div>
                 <div className="p-6 overflow-y-auto">
                     <div className="relative w-full h-auto aspect-video mb-6 rounded-lg overflow-hidden">
-                        <Image src={project.modalImageUrl} alt={project.title} layout="fill" className="object-cover" />
+                        <Image src={project.modalImageUrl} alt={project.title} layout="fill" className="object-contain" />
                     </div>
                     <p className="text-text-muted">{project.longDescription}</p>
                 </div>
-                <div className="p-4 border-t border-white/10 text-right">
-                    <button onClick={onClose} className="bg-accent text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors">Close</button>
+                <div className="p-4 mt-auto border-t border-white/10 text-right">
+                    <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="bg-accent text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors">
+                        Visit Site
+                    </a>
                 </div>
             </motion.div>
         </motion.div>
