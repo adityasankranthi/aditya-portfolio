@@ -6,7 +6,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aditya Sankranthi",
-  description: "Futuristic portfolio of Aditya Sankranthi, a software engineer.",
+  description: "portfolio of Aditya Sankranthi, a software engineer.",
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
