@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const GitHubIcon = () => (
@@ -15,29 +15,69 @@ const cardVariants = {
     visible: { opacity: 1, y: 0 },
 };
 
-const Contact = () => (
-    <section id="contact" className="py-24 sm:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="text-center">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-text">Get In Touch</h2>
-                <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded"></div>
-                <div className="max-w-xl mx-auto">
-                    <p className="text-lg text-text-muted my-8">I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
-                    <a href="mailto:srgaditya@gmail.com" className="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-neon-accent">
-                        Say Hello
-                    </a>
-                    <div className="flex justify-center space-x-6 mt-12">
-                        <motion.a href="https://github.com/adityasankranthi" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
-                            <GitHubIcon />
-                        </motion.a>
-                        <motion.a href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
-                            <LinkedInIcon />
-                        </motion.a>
+const Contact = () => {
+    const [status, setStatus] = useState('');
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setStatus('sending');
+        const formData = new FormData(event.currentTarget);
+
+        try {
+            const response = await fetch('https://formspree.io/f/xgvzbnva', { // <-- IMPORTANT: Replace with your Formspree ID
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                (event.target as HTMLFormElement).reset();
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
+    };
+
+    return (
+        <section id="contact" className="py-24 sm:py-32">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="text-center">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-text">Get In Touch</h2>
+                    <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded"></div>
+                    <div className="max-w-xl mx-auto">
+                        <p className="text-lg text-text-muted my-8">I&apos;m always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out using the form below.</p>
+                        
+                        <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                            <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 bg-primary border border-white/10 rounded-md text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent" />
+                            <textarea name="message" placeholder="Your Message" required rows={4} className="w-full p-3 bg-primary border border-white/10 rounded-md text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                            
+                            {status === 'success' ? 
+                                <p className="text-center text-secondary">Message sent successfully!</p> :
+                                <button type="submit" disabled={status === 'sending'} className="w-full bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-neon-accent disabled:opacity-50 disabled:cursor-not-allowed">
+                                    {status === 'sending' ? 'Sending...' : 'Send Message'}
+                                </button>
+                            }
+                            {status === 'error' && <p className="text-center text-red-500">Something went wrong. Please try again.</p>}
+                        </form>
+
+                        <div className="flex justify-center space-x-6 mt-12">
+                            <motion.a href="https://github.com/adityasankranthi" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
+                                <GitHubIcon />
+                            </motion.a>
+                            <motion.a href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
+                                <LinkedInIcon />
+                            </motion.a>
+                        </div>
                     </div>
-                </div>
-            </motion.div>
-        </div>
-    </section>
-);
+                </motion.div>
+            </div>
+        </section>
+    );
+};
 
 export default Contact;
