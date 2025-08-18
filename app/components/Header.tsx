@@ -5,26 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        const handleLinkClick = (e: MouseEvent) => {
-            const target = e.target as HTMLAnchorElement;
-            if (target.matches('a[href^="#"]')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(target.getAttribute('href') as string);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-                setIsOpen(false); // Close menu on link click
-            }
-        };
-
-        // Use `mousedown` to catch clicks on links before navigation
-        document.addEventListener('mousedown', handleLinkClick);
-        return () => document.removeEventListener('mousedown', handleLinkClick);
-    }, []);
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+        setIsOpen(false);
+    };
 
     useEffect(() => {
-        // Prevent body scroll when mobile menu is open
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -48,14 +38,14 @@ const Header = () => {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex-shrink-0">
-                            <a href="#home" className="text-2xl font-bold text-accent hover:text-accent-hover transition-colors">AS</a>
+                            <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-2xl font-bold text-accent hover:text-accent-hover transition-colors">AS</a>
                         </div>
                         {/* Desktop Navigation */}
                         <nav className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
-                                <a href="#about" className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                                <a href="#portfolio" className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
-                                <a href="#contact" className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                                <a href="#about" onClick={(e) => handleLinkClick(e, '#about')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                                <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
+                                <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                             </div>
                         </nav>
                         {/* Mobile Menu Button */}
@@ -82,11 +72,11 @@ const Header = () => {
                         animate="open"
                         exit="closed"
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                        className="fixed inset-0 bg-primary/95 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-start pt-24 space-y-8"
+                        className="fixed inset-0 bg-primary/95 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-center space-y-8"
                     >
-                        <a href="#about" className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">About</a>
-                        <a href="#portfolio" className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Portfolio</a>
-                        <a href="#contact" className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Contact</a>
+                        <a href="#about" onClick={(e) => handleLinkClick(e, '#about')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">About</a>
+                        <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Portfolio</a>
+                        <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Contact</a>
                     </motion.div>
                 )}
             </AnimatePresence>
