@@ -18,13 +18,18 @@ const Header = () => {
             }
         };
 
-        document.addEventListener('click', handleLinkClick);
-        return () => document.removeEventListener('click', handleLinkClick);
+        // Use `mousedown` to catch clicks on links before navigation
+        document.addEventListener('mousedown', handleLinkClick);
+        return () => document.removeEventListener('mousedown', handleLinkClick);
     }, []);
 
     useEffect(() => {
         // Prevent body scroll when mobile menu is open
-        document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     }, [isOpen]);
 
     const menuVariants = {
@@ -55,7 +60,7 @@ const Header = () => {
                         </nav>
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
-                            <button onClick={() => setIsOpen(!isOpen)} className="text-text-muted hover:text-accent focus:outline-none">
+                            <button onClick={() => setIsOpen(!isOpen)} className="text-text-muted hover:text-accent focus:outline-none z-50 relative">
                                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     {isOpen ? (
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -77,7 +82,7 @@ const Header = () => {
                         animate="open"
                         exit="closed"
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                        className="fixed inset-0 bg-primary z-40 md:hidden flex flex-col items-center justify-center space-y-8"
+                        className="fixed inset-0 bg-primary/95 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-start pt-24 space-y-8"
                     >
                         <a href="#about" className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">About</a>
                         <a href="#portfolio" className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Portfolio</a>
