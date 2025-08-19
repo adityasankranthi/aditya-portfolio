@@ -17,7 +17,7 @@ const Hero = () => (
                 <span className="block text-accent mt-2">Software Engineer</span>
             </h1>
             <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-text-muted">
-                Architecting the digital frontier with code and creativity. From India to Rome to Milwaukee, building the future of the web.
+                Architecting the digital frontier with code and creativity. From India to Itay to USA, building the future of the web.
             </p>
             <div className="mt-10">
                 <a href="#portfolio" className="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-neon-accent">
