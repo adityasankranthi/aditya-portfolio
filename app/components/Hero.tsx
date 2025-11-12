@@ -68,7 +68,7 @@ const Hero = () => {
                     variants={itemVariants}
                     className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-text-muted leading-relaxed"
                 >
-                    Architecting the digital frontier with code and creativity. From India to Italy to USA, building the future of the web.
+                    Full-Stack Engineer specializing in scalable web applications, cloud infrastructure, and AI integration. Building digital solutions that impact thousands of users.
                 </motion.p>
 
                 <motion.div 
@@ -76,20 +76,20 @@ const Hero = () => {
                     className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
                 >
                     <motion.a 
-                        href="#portfolio"
+                        href="#experience"
                         whileHover={{ scale: 1.05, rotateZ: -1 }}
                         whileTap={{ scale: 0.95 }}
                         className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-lg cursor-pointer"
                     >
-                        ✨ Explore My Work
+                        💼 View Experience
                     </motion.a>
                     <motion.a 
                         href="#contact"
                         whileHover={{ scale: 1.05, rotateZ: 1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-4 px-10 rounded-full hover:bg-cyan-400/10 transition-all duration-300 text-lg cursor-pointer"
+                        className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300 text-lg cursor-pointer"
                     >
-                        💬 Get In Touch
+                        🚀 Hire Me / Let&apos;s Talk
                     </motion.a>
                 </motion.div>
             </motion.div>

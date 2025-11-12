@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Experience from './components/Experience';
 import SkillsAndProjects from './components/SkillsAndProjects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -74,6 +75,7 @@ export default function App() {
             <main className="bg-background">
                 <Hero />
                 <About />
+                <Experience />
                 <SkillsAndProjects onProjectClick={handleProjectClick} />
                 <Contact />
             </main>

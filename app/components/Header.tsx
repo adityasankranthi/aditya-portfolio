@@ -47,6 +47,10 @@ const Header = () => {
                                     About
                                     <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                 </a>
+                                <a href="#experience" onClick={(e) => handleLinkClick(e, '#experience')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
+                                    Experience
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                </a>
                                 <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
                                     Portfolio
                                     <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -84,6 +88,7 @@ const Header = () => {
                         className="fixed inset-0 bg-primary/95 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-center space-y-8"
                     >
                         <a href="#about" onClick={(e) => handleLinkClick(e, '#about')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">About</a>
+                        <a href="#experience" onClick={(e) => handleLinkClick(e, '#experience')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Experience</a>
                         <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Portfolio</a>
                         <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="text-2xl font-bold text-text-muted hover:text-accent transition-colors">Contact</a>
                     </motion.div>

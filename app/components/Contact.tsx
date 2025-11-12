@@ -50,11 +50,61 @@ const Contact = () => {
                     <div className="text-center mb-12">
                         <h2 className="text-4xl sm:text-5xl font-extrabold text-text">Get In Touch</h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+                        <p className="text-lg text-text-muted mt-6">
+                            Interested in working together? Reach out directly or download my resume.
+                        </p>
                     </div>
                     
-                    <p className="text-lg text-text-muted text-center mb-12 leading-relaxed">
-                        I&apos;m always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out using the form below.
-                    </p>
+                    {/* Quick Actions */}
+                    <motion.div 
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        <motion.a
+                            href="https://github.com/adityasankranthi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                        >
+                            <div className="text-2xl mb-2">🔗</div>
+                            <p className="text-sm font-semibold text-cyan-400">GitHub</p>
+                        </motion.a>
+                        <motion.a
+                            href="https://linkedin.com/in/aditya-sankranthi-82b4131b6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                        >
+                            <div className="text-2xl mb-2">💼</div>
+                            <p className="text-sm font-semibold text-cyan-400">LinkedIn</p>
+                        </motion.a>
+                        <motion.a
+                            href="mailto:aditya@example.com"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                        >
+                            <div className="text-2xl mb-2">📧</div>
+                            <p className="text-sm font-semibold text-cyan-400">Email</p>
+                        </motion.a>
+                        <motion.a
+                            href="/resume.pdf"
+                            download
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-gradient-to-br from-green-600 to-emerald-600 border border-green-400/50 hover:border-green-400 rounded-lg p-4 text-center transition-all"
+                        >
+                            <div className="text-2xl mb-2">📄</div>
+                            <p className="text-sm font-semibold text-white">Resume</p>
+                        </motion.a>
+                    </motion.div>
                     
                     <motion.form 
                         onSubmit={handleSubmit} 
