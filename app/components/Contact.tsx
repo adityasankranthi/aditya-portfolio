@@ -38,42 +38,104 @@ const Contact = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };
 
     return (
-        <section id="contact" className="py-24 sm:py-32">
+        <section id="contact" className="py-32 sm:py-40 bg-gradient-to-b from-background via-purple-500/5 to-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="text-center">
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-text">Get In Touch</h2>
-                    <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded"></div>
-                    <div className="max-w-xl mx-auto">
-                        <p className="text-lg text-text-muted my-8">I&apos;m always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out using the form below.</p>
-                        
-                        <form onSubmit={handleSubmit} className="space-y-4 text-left">
-                            <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 bg-primary border border-white/10 rounded-md text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent" />
-                            <textarea name="message" placeholder="Your Message" required rows={4} className="w-full p-3 bg-primary border border-white/10 rounded-md text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
-                            
-                            {status === 'success' ? 
-                                <p className="text-center text-secondary">Message sent successfully!</p> :
-                                <button type="submit" disabled={status === 'sending'} className="w-full bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-neon-accent disabled:opacity-50 disabled:cursor-not-allowed">
-                                    {status === 'sending' ? 'Sending...' : 'Send Message'}
-                                </button>
-                            }
-                            {status === 'error' && <p className="text-center text-red-500">Something went wrong. Please try again.</p>}
-                        </form>
-
-                        <div className="flex justify-center space-x-6 mt-12">
-                            <motion.a href="https://github.com/adityasankranthi" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
-                                <GitHubIcon />
-                            </motion.a>
-                            <motion.a href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1, y: -2 }} className="text-text-muted hover:text-accent transition-colors">
-                                <LinkedInIcon />
-                            </motion.a>
-                        </div>
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="max-w-2xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-text">Get In Touch</h2>
+                        <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
                     </div>
+                    
+                    <p className="text-lg text-text-muted text-center mb-12 leading-relaxed">
+                        I&apos;m always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out using the form below.
+                    </p>
+                    
+                    <motion.form 
+                        onSubmit={handleSubmit} 
+                        className="space-y-6 bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-cyan-400/20 hover:border-cyan-400/40 transition-colors"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <div>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="Your Email" 
+                                required 
+                                className="w-full p-4 bg-slate-900/50 border border-cyan-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-transparent transition-all" 
+                            />
+                        </div>
+                        <div>
+                            <textarea 
+                                name="message" 
+                                placeholder="Your Message" 
+                                required 
+                                rows={5} 
+                                className="w-full p-4 bg-slate-900/50 border border-cyan-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-transparent transition-all resize-none" 
+                            ></textarea>
+                        </div>
+                        
+                        {status === 'success' ? 
+                            <motion.p 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="text-center text-green-400 font-semibold"
+                            >
+                                ✓ Message sent successfully! I&apos;ll get back to you soon.
+                            </motion.p> :
+                            <button 
+                                type="submit" 
+                                disabled={status === 'sending'} 
+                                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                            >
+                                {status === 'sending' ? 'Sending...' : 'Send Message'}
+                            </button>
+                        }
+                        {status === 'error' && (
+                            <motion.p 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="text-center text-red-400 font-semibold"
+                            >
+                                Something went wrong. Please try again.
+                            </motion.p>
+                        )}
+                    </motion.form>
+
+                    <motion.div 
+                        className="flex justify-center space-x-8 mt-16"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <motion.a 
+                            href="https://github.com/adityasankranthi" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            whileHover={{ scale: 1.15, y: -4 }} 
+                            className="text-text-muted hover:text-cyan-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-cyan-400/50"
+                        >
+                            <GitHubIcon />
+                        </motion.a>
+                        <motion.a 
+                            href="https://linkedin.com/in/aditya-sankranthi-82b4131b6" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            whileHover={{ scale: 1.15, y: -4 }} 
+                            className="text-text-muted hover:text-cyan-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-cyan-400/50"
+                        >
+                            <LinkedInIcon />
+                        </motion.a>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

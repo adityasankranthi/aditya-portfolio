@@ -54,21 +54,27 @@ const cardVariants = {
 const ProjectCard = ({ project, onDetailsClick }: { project: Project, onDetailsClick: () => void }) => (
     <motion.div
         variants={cardVariants}
-        className="bg-primary rounded-2xl p-6 group border border-white/10 flex flex-col relative overflow-hidden h-64" // Fixed height
+        className="group relative overflow-hidden rounded-2xl h-80 card-hover-lift"
     >
-        <div className="absolute inset-0 bg-gradient-to-br from-accent via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-pan z-0"></div>
-        <div className="absolute inset-0 bg-primary group-hover:bg-primary/80 transition-colors duration-500 z-0"></div>
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 z-0"></div>
         
-        <div className="relative z-10 flex flex-col flex-grow">
-            <div className="w-12 h-12 p-1.5 bg-primary/80 backdrop-blur-sm rounded-lg border-2 border-white/20 mb-4">
-                <Image src={project.logoUrl} alt={`${project.title} logo`} width={40} height={40} className="w-full h-full object-contain" />
+        {/* Animated gradient border on hover */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+        
+        {/* Border */}
+        <div className="absolute inset-0 border border-white/10 group-hover:border-cyan-400/50 transition-colors duration-300 rounded-2xl z-0"></div>
+        
+        <div className="relative z-10 p-8 h-full flex flex-col">
+            <div className="w-16 h-16 p-2 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-cyan-400/30 mb-6 group-hover:border-cyan-400/60 transition-colors">
+                <Image src={project.logoUrl} alt={`${project.title} logo`} width={56} height={56} className="w-full h-full object-contain" />
             </div>
-            <h3 className="text-xl font-bold text-text">{project.title}</h3>
-            <p className="text-sm text-text-muted mt-1 flex-grow">{project.description}</p>
-            <div className="mt-4 flex space-x-2">
+            <h3 className="text-2xl font-bold text-text mb-3 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+            <p className="text-base text-text-muted mb-8 flex-grow leading-relaxed">{project.description}</p>
+            <div className="flex gap-3">
                 <button
                     onClick={onDetailsClick}
-                    className="flex-1 bg-primary text-text py-2 px-4 rounded-full text-sm font-semibold hover:bg-accent hover:text-white transition-colors border border-white/10"
+                    className="flex-1 bg-slate-700/50 text-text py-3 px-4 rounded-lg text-sm font-semibold hover:bg-cyan-400/20 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60"
                 >
                     View Details
                 </button>
@@ -76,7 +82,7 @@ const ProjectCard = ({ project, onDetailsClick }: { project: Project, onDetailsC
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center bg-accent text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors"
+                    className="flex-1 text-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-4 rounded-lg text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
                 >
                     Visit Site
                 </a>
@@ -104,44 +110,53 @@ const SkillCard = ({ name }: { name: string }) => {
     return (
         <motion.div
             ref={ref}
-            className="bg-primary p-4 rounded-lg border border-white/10 text-center text-text-muted font-medium cursor-pointer"
-            style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: "1000px" }}
+            className="bg-gradient-to-br from-slate-800 to-slate-900 p-5 rounded-xl border border-cyan-400/20 text-center text-text-muted font-medium cursor-pointer group hover:border-cyan-400/60 transition-all duration-300 overflow-hidden relative"
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            whileHover={{ boxShadow: '0 0 20px rgba(0, 246, 255, 0.3)', borderColor: 'rgba(0, 246, 255, 0.5)'}}
+            whileHover={{ 
+                boxShadow: '0 0 20px rgba(0, 200, 255, 0.3)',
+                y: -4
+            }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-            <div style={{ transform: "translateZ(20px)" }}>{name}</div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 text-sm font-semibold text-cyan-100 group-hover:text-cyan-300 transition-colors">{name}</div>
         </motion.div>
     );
 };
 
 const SkillsAndProjects = ({ onProjectClick }: { onProjectClick: (project: Project) => void }) => {
     return (
-        <section id="portfolio" className="py-24 sm:py-32 bg-background">
+        <section id="portfolio" className="py-32 sm:py-40 bg-gradient-to-b from-background via-blue-500/5 to-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="text-center mb-16">
-                    <motion.h2 variants={cardVariants} className="text-3xl sm:text-4xl font-extrabold text-text">My Work & Expertise</motion.h2>
-                    <motion.div variants={cardVariants} transition={{delay: 0.1}} className="w-20 h-1 bg-accent mx-auto mt-4 rounded"></motion.div>
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="text-center mb-20">
+                    <motion.h2 variants={cardVariants} className="text-4xl sm:text-5xl font-extrabold text-text">My Work & Expertise</motion.h2>
+                    <motion.div variants={cardVariants} transition={{delay: 0.1}} className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></motion.div>
                 </motion.div>
-                <div className="mb-24">
-                    <h3 className="text-2xl font-bold text-text text-center mb-12">Core Technologies</h3>
+                <div className="mb-32">
+                    <h3 className="text-3xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-text to-cyan-300">Core Technologies</h3>
+                    <p className="text-center text-text-muted mb-14">Expertise across modern web technologies and best practices</p>
                     <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} transition={{ staggerChildren: 0.1 }}>
                         {skillCategories.map(category => (
                             <motion.div key={category.title} variants={cardVariants}>
-                                <h4 className="text-lg font-semibold text-accent mb-4 text-center border-b-2 border-accent/30 pb-2">{category.title}</h4>
-                                <div className="space-y-4">
+                                <h4 className="text-lg font-bold text-cyan-400 mb-6 text-center border-b-2 border-cyan-400/30 pb-3 hover:border-cyan-400/60 transition-colors">{category.title}</h4>
+                                <div className="space-y-3">
                                     {category.skills.map(skill => (<SkillCard key={skill} name={skill} />))}
                                 </div>
                             </motion.div>
                         ))}
                     </motion.div>
                 </div>
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} transition={{ staggerChildren: 0.15 }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projectsData.map((project) => (
-                        <ProjectCard key={project.title} project={project} onDetailsClick={() => onProjectClick(project)} />
-                    ))}
-                </motion.div>
+                <div>
+                    <h3 className="text-3xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-text to-cyan-300">Featured Projects</h3>
+                    <p className="text-center text-text-muted mb-14">A selection of projects I&apos;ve worked on</p>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} transition={{ staggerChildren: 0.15 }} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {projectsData.map((project) => (
+                            <ProjectCard key={project.title} project={project} onDetailsClick={() => onProjectClick(project)} />
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </section>
     );
