@@ -54,7 +54,10 @@ const cardVariants = {
 const ProjectCard = ({ project, onDetailsClick }: { project: Project, onDetailsClick: () => void }) => (
     <motion.div
         variants={cardVariants}
-        className="group relative overflow-hidden rounded-2xl h-80 card-hover-lift"
+        className="group relative overflow-hidden rounded-2xl h-80 card-hover-lift cursor-pointer"
+        onClick={onDetailsClick}
+        whileHover={{ rotateY: 5, rotateX: -5 }}
+        transition={{ type: 'spring', stiffness: 300 }}
     >
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 z-0"></div>
@@ -65,27 +68,38 @@ const ProjectCard = ({ project, onDetailsClick }: { project: Project, onDetailsC
         {/* Border */}
         <div className="absolute inset-0 border border-white/10 group-hover:border-cyan-400/50 transition-colors duration-300 rounded-2xl z-0"></div>
         
+        {/* Fun shine effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 translate-x-full group-hover:translate-x-0 transition-all duration-500 z-0"></div>
+        
         <div className="relative z-10 p-8 h-full flex flex-col">
-            <div className="w-16 h-16 p-2 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-cyan-400/30 mb-6 group-hover:border-cyan-400/60 transition-colors">
+            <motion.div 
+                className="w-16 h-16 p-2 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-cyan-400/30 mb-6 group-hover:border-cyan-400/60 transition-colors"
+                whileHover={{ rotate: 10, scale: 1.1 }}
+            >
                 <Image src={project.logoUrl} alt={`${project.title} logo`} width={56} height={56} className="w-full h-full object-contain" />
-            </div>
+            </motion.div>
             <h3 className="text-2xl font-bold text-text mb-3 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
             <p className="text-base text-text-muted mb-8 flex-grow leading-relaxed">{project.description}</p>
             <div className="flex gap-3">
-                <button
-                    onClick={onDetailsClick}
+                <motion.button
+                    onClick={(e) => { e.stopPropagation(); onDetailsClick(); }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className="flex-1 bg-slate-700/50 text-text py-3 px-4 rounded-lg text-sm font-semibold hover:bg-cyan-400/20 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60"
                 >
-                    View Details
-                </button>
-                <a
+                    👁️ View Details
+                </motion.button>
+                <motion.a
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className="flex-1 text-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-4 rounded-lg text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
                 >
-                    Visit Site
-                </a>
+                    🔗 Visit Site
+                </motion.a>
             </div>
         </div>
     </motion.div>
@@ -115,13 +129,22 @@ const SkillCard = ({ name }: { name: string }) => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             whileHover={{ 
-                boxShadow: '0 0 20px rgba(0, 200, 255, 0.3)',
-                y: -4
+                boxShadow: '0 0 30px rgba(0, 200, 255, 0.4)',
+                y: -8,
+                scale: 1.08
             }}
+            whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div style={{ transform: "translateZ(20px)" }} className="relative z-10 text-sm font-semibold text-cyan-100 group-hover:text-cyan-300 transition-colors">{name}</div>
+            <motion.div 
+                style={{ transform: "translateZ(20px)" }} 
+                className="relative z-10 text-sm font-semibold text-cyan-100 group-hover:text-cyan-300 transition-colors"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+            >
+                {name}
+            </motion.div>
         </motion.div>
     );
 };

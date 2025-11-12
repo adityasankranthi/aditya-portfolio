@@ -1,9 +1,27 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import HeroCanvas from './HeroCanvas';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+    const [displayText, setDisplayText] = useState('');
+    const fullText = 'Software Engineer';
+    const typingSpeed = 100;
+
+    useEffect(() => {
+        let index = 0;
+        const timer = setInterval(() => {
+            if (index < fullText.length) {
+                setDisplayText(fullText.substring(0, index + 1));
+                index++;
+            } else {
+                clearInterval(timer);
+            }
+        }, typingSpeed);
+
+        return () => clearInterval(timer);
+    }, []);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -39,9 +57,10 @@ const Hero = () => {
                     </h1>
                 </motion.div>
                 
-                <motion.div variants={itemVariants} className="mt-4">
+                <motion.div variants={itemVariants} className="mt-4 min-h-20">
                     <span className="inline-block text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                        Software Engineer
+                        {displayText}
+                        <span className="animate-pulse">|</span>
                     </span>
                 </motion.div>
 
@@ -56,18 +75,22 @@ const Hero = () => {
                     variants={itemVariants}
                     className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                    <a 
-                        href="#portfolio" 
-                        className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 text-lg"
+                    <motion.a 
+                        href="#portfolio"
+                        whileHover={{ scale: 1.05, rotateZ: -1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-lg cursor-pointer"
                     >
-                        Explore My Work
-                    </a>
-                    <a 
-                        href="#contact" 
-                        className="inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-4 px-10 rounded-full hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105 text-lg"
+                        ✨ Explore My Work
+                    </motion.a>
+                    <motion.a 
+                        href="#contact"
+                        whileHover={{ scale: 1.05, rotateZ: 1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-4 px-10 rounded-full hover:bg-cyan-400/10 transition-all duration-300 text-lg cursor-pointer"
                     >
-                        Get In Touch
-                    </a>
+                        💬 Get In Touch
+                    </motion.a>
                 </motion.div>
             </motion.div>
         </section>

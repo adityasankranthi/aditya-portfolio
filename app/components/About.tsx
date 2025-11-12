@@ -25,10 +25,10 @@ const About = () => (
                         transition={{ duration: 0.8 }}
                     >
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-2xl opacity-20 scale-110"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-2xl opacity-20 scale-110 pulse-glow"></div>
                             <motion.div 
                                 className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-cyan-400/50"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.05, rotate: 5 }}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
                                 <Image 

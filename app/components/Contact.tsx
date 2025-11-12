@@ -85,19 +85,21 @@ const Contact = () => {
                         
                         {status === 'success' ? 
                             <motion.p 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="text-center text-green-400 font-semibold"
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="text-center text-green-400 font-semibold text-lg"
                             >
-                                ✓ Message sent successfully! I&apos;ll get back to you soon.
+                                ✨ Message sent successfully! I&apos;ll get back to you soon. 🚀
                             </motion.p> :
-                            <button 
+                            <motion.button 
                                 type="submit" 
-                                disabled={status === 'sending'} 
-                                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                                disabled={status === 'sending'}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                             >
-                                {status === 'sending' ? 'Sending...' : 'Send Message'}
-                            </button>
+                                {status === 'sending' ? '⏳ Sending...' : '📬 Send Message'}
+                            </motion.button>
                         }
                         {status === 'error' && (
                             <motion.p 
