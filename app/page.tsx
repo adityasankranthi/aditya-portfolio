@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import DeskScene from './components/DeskScene';
 import About from './components/About';
 import Experience from './components/Experience';
 import EnhancedProjects from './components/EnhancedProjects';
@@ -63,8 +63,8 @@ export default function App() {
             <InteractiveCursor />
             <FloatingParticles />
             <Header />
-            <main className="bg-slate-950">
-                <Hero />
+                        <main className="bg-background">
+                <DeskScene />
                 <About />
                 <Experience />
                 <EnhancedProjects />
