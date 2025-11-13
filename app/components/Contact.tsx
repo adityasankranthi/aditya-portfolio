@@ -49,7 +49,7 @@ const Contact = () => {
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} className="max-w-2xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl sm:text-5xl font-extrabold text-text">Get In Touch</h2>
-                        <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
                         <p className="text-lg text-text-muted mt-6">
                             Interested in working together? Reach out directly or download my resume.
                         </p>
@@ -69,10 +69,10 @@ const Contact = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-blue-400/20 hover:border-blue-400/50 rounded-lg p-4 text-center transition-all"
                         >
                             <div className="text-2xl mb-2">🔗</div>
-                            <p className="text-sm font-semibold text-cyan-400">GitHub</p>
+                            <p className="text-sm font-semibold text-blue-400">GitHub</p>
                         </motion.a>
                         <motion.a
                             href="https://linkedin.com/in/aditya-sankranthi-82b4131b6"
@@ -80,26 +80,26 @@ const Contact = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-blue-400/20 hover:border-blue-400/50 rounded-lg p-4 text-center transition-all"
                         >
                             <div className="text-2xl mb-2">💼</div>
-                            <p className="text-sm font-semibold text-cyan-400">LinkedIn</p>
+                            <p className="text-sm font-semibold text-blue-400">LinkedIn</p>
                         </motion.a>
                         <motion.a
                             href="mailto:aditya@example.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-lg p-4 text-center transition-all"
+                            className="bg-gradient-to-br from-slate-800 to-slate-900 border border-blue-400/20 hover:border-blue-400/50 rounded-lg p-4 text-center transition-all"
                         >
                             <div className="text-2xl mb-2">📧</div>
-                            <p className="text-sm font-semibold text-cyan-400">Email</p>
+                            <p className="text-sm font-semibold text-blue-400">Email</p>
                         </motion.a>
                         <motion.a
                             href="/resume.pdf"
                             download
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-br from-green-600 to-emerald-600 border border-green-400/50 hover:border-green-400 rounded-lg p-4 text-center transition-all"
+                            className="bg-gradient-to-br from-green-600 to-emerald-600 border border-blue-400/50 hover:border-blue-400 rounded-lg p-4 text-center transition-all"
                         >
                             <div className="text-2xl mb-2">📄</div>
                             <p className="text-sm font-semibold text-white">Resume</p>
@@ -108,7 +108,7 @@ const Contact = () => {
                     
                     <motion.form 
                         onSubmit={handleSubmit} 
-                        className="space-y-6 bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-cyan-400/20 hover:border-cyan-400/40 transition-colors"
+                        className="space-y-6 bg-slate-800/30 backdrop-blur-sm p-8 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-colors"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -120,7 +120,7 @@ const Contact = () => {
                                 name="email" 
                                 placeholder="Your Email" 
                                 required 
-                                className="w-full p-4 bg-slate-900/50 border border-cyan-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-transparent transition-all" 
+                                className="w-full p-4 bg-slate-900/50 border border-blue-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-transparent transition-all" 
                             />
                         </div>
                         <div>
@@ -129,7 +129,7 @@ const Contact = () => {
                                 placeholder="Your Message" 
                                 required 
                                 rows={5} 
-                                className="w-full p-4 bg-slate-900/50 border border-cyan-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-transparent transition-all resize-none" 
+                                className="w-full p-4 bg-slate-900/50 border border-blue-400/20 rounded-lg text-text placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-transparent transition-all resize-none" 
                             ></textarea>
                         </div>
                         
@@ -137,7 +137,7 @@ const Contact = () => {
                             <motion.p 
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                className="text-center text-green-400 font-semibold text-lg"
+                                className="text-center text-blue-400 font-semibold text-lg"
                             >
                                 ✨ Message sent successfully! I&apos;ll get back to you soon. 🚀
                             </motion.p> :
@@ -146,7 +146,7 @@ const Contact = () => {
                                 disabled={status === 'sending'}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                                className="w-full bg-gradient-to-r from-blue-500 to-blue-500 text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                             >
                                 {status === 'sending' ? '⏳ Sending...' : '📬 Send Message'}
                             </motion.button>
@@ -174,7 +174,7 @@ const Contact = () => {
                             target="_blank" 
                             rel="noopener noreferrer" 
                             whileHover={{ scale: 1.15, y: -4 }} 
-                            className="text-text-muted hover:text-cyan-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-cyan-400/50"
+                            className="text-text-muted hover:text-blue-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-blue-400/50"
                         >
                             <GitHubIcon />
                         </motion.a>
@@ -183,7 +183,7 @@ const Contact = () => {
                             target="_blank" 
                             rel="noopener noreferrer" 
                             whileHover={{ scale: 1.15, y: -4 }} 
-                            className="text-text-muted hover:text-cyan-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-cyan-400/50"
+                            className="text-text-muted hover:text-blue-400 transition-colors p-3 rounded-lg border border-white/10 hover:border-blue-400/50"
                         >
                             <LinkedInIcon />
                         </motion.a>

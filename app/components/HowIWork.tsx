@@ -34,11 +34,11 @@ export default function HowIWork() {
       title: 'Plan',
       description: 'Break down problems into actionable tasks, design architecture, and define requirements.',
       tools: ['Figma', 'Notion', 'Miro'],
-      color: 'from-cyan-500 to-blue-500'
+      color: 'from-blue-500 to-blue-500'
     },
     {
       id: 'code',
-      icon: '💻',
+      icon: '',
       title: 'Code',
       description: 'Write clean, maintainable code with best practices and design patterns.',
       tools: ['VS Code', 'TypeScript', 'Git'],
@@ -46,7 +46,7 @@ export default function HowIWork() {
     },
     {
       id: 'test',
-      icon: '🧪',
+      icon: '',
       title: 'Test',
       description: 'Ensure quality through unit tests, integration tests, and manual verification.',
       tools: ['Jest', 'Cypress', 'Postman'],
@@ -54,7 +54,7 @@ export default function HowIWork() {
     },
     {
       id: 'deploy',
-      icon: '🚀',
+      icon: '',
       title: 'Deploy',
       description: 'Deploy with confidence using CI/CD pipelines and monitoring.',
       tools: ['Docker', 'Vercel', 'GitHub Actions'],
@@ -62,7 +62,7 @@ export default function HowIWork() {
     },
     {
       id: 'maintain',
-      icon: '🔧',
+      icon: '',
       title: 'Maintain',
       description: 'Monitor performance, fix bugs, optimize, and continuously improve.',
       tools: ['Datadog', 'Sentry', 'LogRocket'],
@@ -72,7 +72,7 @@ export default function HowIWork() {
 
   const principles: Principle[] = [
     {
-      icon: '🎯',
+      icon: '',
       title: 'Focus on Impact',
       description: 'Every line of code should create measurable value for users.'
     },
@@ -87,17 +87,17 @@ export default function HowIWork() {
       description: 'Clear communication and code reviews lead to better solutions.'
     },
     {
-      icon: '📚',
+      icon: '',
       title: 'Keep Learning',
       description: 'Stay updated with trends, best practices, and new technologies.'
     },
     {
-      icon: '⚡',
+      icon: '',
       title: 'Optimize',
       description: 'Performance and user experience are never "good enough".'
     },
     {
-      icon: '🛡️',
+      icon: '',
       title: 'Secure First',
       description: 'Security is built into every layer, not added as afterthought.'
     }
@@ -105,32 +105,32 @@ export default function HowIWork() {
 
   const tools: DeveloperTool[] = [
     {
-      icon: '📝',
+      icon: '',
       name: 'VS Code',
       description: 'Primary development environment with extensions for productivity'
     },
     {
-      icon: '🌿',
+      icon: '',
       name: 'Git',
       description: 'Version control for tracking changes and collaboration'
     },
     {
-      icon: '🐳',
+      icon: '',
       name: 'Docker',
       description: 'Containerization for consistent development and deployment'
     },
     {
-      icon: '📮',
+      icon: '',
       name: 'Postman',
       description: 'API testing and documentation for backend development'
     },
     {
-      icon: '🔍',
+      icon: '',
       name: 'Chrome DevTools',
       description: 'Debugging and performance profiling for frontend'
     },
     {
-      icon: '💬',
+      icon: '',
       name: 'Slack',
       description: 'Team communication and integration with development tools'
     }
@@ -140,7 +140,7 @@ export default function HowIWork() {
     <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-background via-background to-background/80 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
@@ -154,7 +154,7 @@ export default function HowIWork() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
               How I Work
             </span>
           </h2>
@@ -181,7 +181,7 @@ export default function HowIWork() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className={`relative bg-gradient-to-br ${step.color} p-0.5 rounded-lg`}>
                 <div className="bg-background rounded-lg p-6 h-full flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 group-hover:scale-105">
@@ -204,12 +204,12 @@ export default function HowIWork() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute top-full left-0 right-0 mt-2 bg-background border border-cyan-500/30 rounded-lg p-4 z-20 backdrop-blur"
+                    className="absolute top-full left-0 right-0 mt-2 bg-background border border-blue-500/30 rounded-lg p-4 z-20 backdrop-blur"
                   >
                     <p className="text-sm text-gray-300 mb-3">{step.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {step.tools.map((tool) => (
-                        <span key={tool} className="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-1 rounded border border-cyan-500/30">
+                        <span key={tool} className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30">
                           {tool}
                         </span>
                       ))}
@@ -230,7 +230,7 @@ export default function HowIWork() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold text-center mb-10">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               Core Principles
             </span>
           </h3>
@@ -268,7 +268,7 @@ export default function HowIWork() {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-center mb-10">
-            <span className="bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               My Daily Toolkit
             </span>
           </h3>
@@ -288,7 +288,7 @@ export default function HowIWork() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="group bg-gradient-to-br from-green-500/10 to-cyan-500/10 border border-green-500/20 rounded-lg p-6 transition-all hover:border-green-500/40"
+                className="group bg-gradient-to-br from-blue-500/10 to-blue-500/10 border border-blue-500/20 rounded-lg p-6 transition-all hover:border-blue-500/40"
               >
                 <motion.div
                   className="text-3xl mb-3 cursor-pointer"
@@ -316,9 +316,9 @@ export default function HowIWork() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-gradient-to-r from-cyan-400 to-green-400 text-background font-bold py-3 px-8 rounded-lg transition-all hover:shadow-lg hover:shadow-cyan-500/50"
+            className="inline-block bg-gradient-to-r from-blue-400 to-blue-400 text-background font-bold py-3 px-8 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/50"
           >
-            Let's Talk 💬
+            Let's Talk 
           </motion.a>
         </motion.div>
       </div>

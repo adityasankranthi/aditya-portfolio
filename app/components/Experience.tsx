@@ -52,21 +52,21 @@ const ExperienceCard: React.FC<{ item: ExperienceItem; index: number }> = ({ ite
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: index * 0.1 }}
-        className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-300"
+        className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-blue-400/20 hover:border-blue-400/50 transition-all duration-300"
     >
         {/* Animated gradient background on hover */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
 
         <div className="relative z-10">
             {/* Header */}
             <div className="flex items-start justify-between mb-4">
                 <div>
-                    <h3 className="text-2xl font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
                         {item.title}
                     </h3>
                     <p className="text-lg text-text-muted mt-1">{item.company}</p>
                 </div>
-                <span className="text-sm font-semibold text-cyan-400/80 bg-cyan-400/10 px-4 py-2 rounded-full whitespace-nowrap ml-4">
+                <span className="text-sm font-semibold text-blue-400/80 bg-blue-400/10 px-4 py-2 rounded-full whitespace-nowrap ml-4">
                     {item.period}
                 </span>
             </div>
@@ -76,11 +76,11 @@ const ExperienceCard: React.FC<{ item: ExperienceItem; index: number }> = ({ ite
 
             {/* Highlights */}
             <div className="mb-6">
-                <h4 className="text-sm font-semibold text-cyan-300 mb-3">Key Achievements:</h4>
+                <h4 className="text-sm font-semibold text-blue-300 mb-3">Key Achievements:</h4>
                 <ul className="space-y-2">
                     {item.highlights.map((highlight, i) => (
                         <li key={i} className="flex items-start text-text-muted">
-                            <span className="text-cyan-400 mr-3 mt-1">✓</span>
+                            <span className="text-blue-400 mr-3 mt-1">✓</span>
                             <span>{highlight}</span>
                         </li>
                     ))}
@@ -92,7 +92,7 @@ const ExperienceCard: React.FC<{ item: ExperienceItem; index: number }> = ({ ite
                 {item.technologies.map((tech) => (
                     <span
                         key={tech}
-                        className="text-xs font-semibold text-cyan-300 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/20 group-hover:border-cyan-400/50 transition-colors"
+                        className="text-xs font-semibold text-blue-300 bg-blue-400/10 px-3 py-1 rounded-full border border-blue-400/20 group-hover:border-blue-400/50 transition-colors"
                     >
                         {tech}
                     </span>
@@ -115,7 +115,7 @@ const Experience = () => {
                     {/* Section Header */}
                     <div className="text-center mb-20">
                         <h2 className="text-4xl sm:text-5xl font-extrabold text-text">Professional Experience</h2>
-                        <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
                     </div>
 
                     {/* Experience Items */}

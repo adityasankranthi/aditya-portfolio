@@ -37,12 +37,12 @@ export const InteractiveCursor = () => {
 
   return (
     <motion.div
-      className="fixed w-6 h-6 border-2 border-cyan-400 rounded-full pointer-events-none z-50 mix-blend-screen"
+      className="fixed w-6 h-6 border-2 border-blue-400 rounded-full pointer-events-none z-50 mix-blend-screen"
       animate={{ x: position.x - 12, y: position.y - 12 }}
       transition={{ type: 'tween', duration: 0 }}
     >
       <motion.div
-        className="absolute inset-0 bg-cyan-400 rounded-full opacity-20"
+        className="absolute inset-0 bg-blue-400 rounded-full opacity-20"
         animate={{
           scale: [1, 1.5, 1],
         }}
@@ -75,7 +75,7 @@ export const FloatingParticles = () => {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute bg-cyan-400/30 rounded-full"
+          className="absolute bg-blue-400/30 rounded-full"
           style={{
             width: particle.size,
             height: particle.size,
@@ -120,7 +120,7 @@ export const useEmojiReactions = () => {
   const [reactions, setReactions] = useState<Array<{ id: number; x: number; y: number; emoji: string }>>([]);
   const reactionIdRef = useRef(0);
 
-  const triggerReaction = (x: number, y: number, emoji: string = '🎉') => {
+  const triggerReaction = (x: number, y: number, emoji: string = '') => {
     const id = reactionIdRef.current++;
     setReactions((prev) => [...prev, { id, x, y, emoji }]);
 
@@ -132,7 +132,7 @@ export const useEmojiReactions = () => {
   return { reactions, triggerReaction };
 };
 
-// Main Interactive Effects Manager (Loading + Easter Eggs)
+// Main Interactive Effects Manager (Initializing System + Easter Eggs)
 const InteractiveEffectsManager = () => {
   const [loading, setLoading] = useState(true);
   const [easterEgg, setEasterEgg] = useState<EasterEggState>({
@@ -146,11 +146,11 @@ const InteractiveEffectsManager = () => {
   const loadingMessages = [
     'Compiling resume...',
     'Optimizing recruiter experience...',
-    'Loading cool projects...',
+    'Initializing System cool projects...',
     'Brewing some coffee ☕',
     'Making code prettier...',
     'Debugging imposter syndrome...',
-    'Loading the magic ✨',
+    'Initializing System the magic ',
     'Preparing to impress...',
     'Checking TypeScript strict mode...',
     'Calculating coolness factor...',
@@ -237,7 +237,7 @@ const InteractiveEffectsManager = () => {
 
   return (
     <>
-      {/* Loading Screen */}
+      {/* Initializing System Screen */}
       <AnimatePresence>
         {loading && (
           <motion.div
@@ -254,7 +254,7 @@ const InteractiveEffectsManager = () => {
                 className="w-16 h-16 border-4 border-[#00F6FF] border-t-transparent rounded-full mx-auto mb-8"
               />
 
-              {/* Loading message */}
+              {/* Initializing System message */}
               <motion.p
                 key={currentMessage}
                 initial={{ opacity: 0, y: 10 }}
@@ -326,7 +326,7 @@ const InteractiveEffectsManager = () => {
               transition={{ duration: 1, repeat: Infinity }}
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#3A86FF] to-[#00F6FF] rounded-full text-white font-mono text-sm"
             >
-              <span className="text-yellow-300">⭐</span>
+              <span className="text-yellow-300"></span>
               {easterEgg.logoClicks} click{easterEgg.logoClicks !== 1 ? 's' : ''} ({5 - easterEgg.logoClicks} to go!)
             </motion.div>
           </motion.div>
@@ -350,7 +350,7 @@ const InteractiveEffectsManager = () => {
               transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
               className="px-6 py-3 bg-gradient-to-r from-[#00FF88] to-[#00F6FF] rounded-lg text-[#0D0C1D] font-bold shadow-xl"
             >
-              🎉 Achievement Unlocked: Curious Developer! 🎉
+               Achievement Unlocked: Curious Developer! 
             </motion.div>
           </motion.div>
         )}

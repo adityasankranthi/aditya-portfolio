@@ -29,10 +29,10 @@ export default function EnhancedContact() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const socialLinks = [
-    { icon: '💼', name: 'LinkedIn', url: 'https://linkedin.com/in/adityasankranthi', color: 'hover:text-blue-400' },
-    { icon: '🐙', name: 'GitHub', url: 'https://github.com/adityasankranthi', color: 'hover:text-gray-300' },
-    { icon: '𝕏', name: 'X/Twitter', url: 'https://twitter.com/adityasankranthi', color: 'hover:text-cyan-400' },
-    { icon: '✉️', name: 'Email', url: 'mailto:aditya@example.com', color: 'hover:text-green-400' },
+    { icon: '[LinkedIn]', name: 'LinkedIn', url: 'https://linkedin.com/in/adityasankranthi', color: 'hover:text-blue-400' },
+    { icon: '[GitHub]', name: 'GitHub', url: 'https://github.com/adityasankranthi', color: 'hover:text-gray-300' },
+    { icon: '[Twitter]', name: 'X/Twitter', url: 'https://twitter.com/adityasankranthi', color: 'hover:text-blue-400' },
+    { icon: '[Email]', name: 'Email', url: 'mailto:aditya@example.com', color: 'hover:text-blue-400' },
   ];
 
   const validateEmail = (email: string): boolean => {
@@ -73,7 +73,7 @@ export default function EnhancedContact() {
       // Simulate API call - in production, this would send to your backend
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      setFormStatus({ type: 'success', message: 'Message sent! I\'ll get back to you soon 🚀' });
+      setFormStatus({ type: 'success', message: 'Message sent! I\'ll get back to you soon ' });
       setShowSuccess(true);
       setFormData({ name: '', email: '', message: '' });
       
@@ -111,8 +111,8 @@ export default function EnhancedContact() {
     <section id="contact" className="relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-background via-background to-background/80 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -125,7 +125,7 @@ export default function EnhancedContact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-blue-400 to-blue-400 bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
@@ -143,9 +143,9 @@ export default function EnhancedContact() {
             viewport={{ once: true }}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-green-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
-            <div className="relative bg-background border border-cyan-500/30 rounded-lg p-8">
+            <div className="relative bg-background border border-blue-500/30 rounded-lg p-8">
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
                 <motion.div
@@ -154,14 +154,14 @@ export default function EnhancedContact() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <label className="block text-sm font-semibold text-cyan-300 mb-2">Name</label>
+                  <label className="block text-sm font-semibold text-blue-300 mb-2">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your name"
-                    className="w-full bg-background/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    className="w-full bg-background/50 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                     disabled={formStatus.type === 'loading'}
                   />
                 </motion.div>
@@ -173,14 +173,14 @@ export default function EnhancedContact() {
                   transition={{ duration: 0.5, delay: 0.15 }}
                   viewport={{ once: true }}
                 >
-                  <label className="block text-sm font-semibold text-cyan-300 mb-2">Email</label>
+                  <label className="block text-sm font-semibold text-blue-300 mb-2">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
-                    className="w-full bg-background/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                    className="w-full bg-background/50 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                     disabled={formStatus.type === 'loading'}
                   />
                 </motion.div>
@@ -192,14 +192,14 @@ export default function EnhancedContact() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <label className="block text-sm font-semibold text-cyan-300 mb-2">Message</label>
+                  <label className="block text-sm font-semibold text-blue-300 mb-2">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell me about your project or just say hi..."
                     rows={5}
-                    className="w-full bg-background/50 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none"
+                    className="w-full bg-background/50 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all resize-none"
                     disabled={formStatus.type === 'loading'}
                   />
                   <div className="text-xs text-gray-500 mt-1">
@@ -216,7 +216,7 @@ export default function EnhancedContact() {
                       exit={{ opacity: 0, y: -10 }}
                       className={`p-3 rounded-lg text-sm font-medium ${
                         formStatus.type === 'success'
-                          ? 'bg-green-500/20 text-green-300 border border-green-500/30'
+                          ? 'bg-blue-500/20 text-green-300 border border-blue-500/30'
                           : formStatus.type === 'error'
                           ? 'bg-red-500/20 text-red-300 border border-red-500/30'
                           : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
@@ -233,7 +233,7 @@ export default function EnhancedContact() {
                   disabled={formStatus.type === 'loading'}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-cyan-400 to-green-400 text-background font-bold py-3 px-6 rounded-lg transition-all hover:shadow-lg hover:shadow-cyan-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-blue-400 to-blue-400 text-background font-bold py-3 px-6 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {formStatus.type === 'loading' ? 'Sending...' : 'Send Message'}
                 </motion.button>
@@ -257,19 +257,19 @@ export default function EnhancedContact() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-green-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <div className="relative bg-background border border-green-500/30 rounded-lg p-6">
+              <div className="relative bg-background border border-blue-500/30 rounded-lg p-6">
                 <h3 className="text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
-                  <span className="text-2xl">📅</span>
-                  Pick a Time
+                  <span className="text-2xl"></span>
+                  Schedule Your Time
                 </h3>
                 
                 <motion.button
                   onClick={() => setShowCalendar(!showCalendar)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/30 text-white rounded-lg px-4 py-3 font-semibold hover:border-green-400 transition-all mb-4"
+                  className="w-full bg-gradient-to-r from-blue-500/20 to-blue-500/20 border border-blue-500/30 text-white rounded-lg px-4 py-3 font-semibold hover:border-blue-400 transition-all mb-4"
                 >
                   {formatDate(selectedDate)} 📍
                 </motion.button>
@@ -281,12 +281,12 @@ export default function EnhancedContact() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="bg-background/50 border border-green-500/30 rounded-lg p-4 mb-4 overflow-hidden"
+                      className="bg-background/50 border border-blue-500/30 rounded-lg p-4 mb-4 overflow-hidden"
                     >
                       <div className="text-sm text-gray-400 mb-3">
                         <p>Select a date for a consultation call (15-60 min)</p>
                       </div>
-                      <div className="bg-background rounded p-3 border border-green-500/20">
+                      <div className="bg-background rounded p-3 border border-blue-500/20">
                         <CalendarComponent
                           value={selectedDate}
                           onChange={(date: any) => {
@@ -311,13 +311,13 @@ export default function EnhancedContact() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full inline-block text-center bg-gradient-to-r from-green-400 to-cyan-400 text-background font-bold py-3 px-4 rounded-lg transition-all hover:shadow-lg hover:shadow-green-500/50"
+                  className="w-full inline-block text-center bg-gradient-to-r from-blue-400 to-blue-400 text-background font-bold py-3 px-4 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/50"
                 >
                   Schedule on Calendly ↗️
                 </motion.a>
 
-                <div className="mt-4 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-sm text-gray-300">
-                  <p>💡 <strong>Tip:</strong> You can book a time for a quick chat, code review, or project discussion.</p>
+                <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg text-sm text-gray-300">
+                  <p> <strong>Tip:</strong> You can book a time for a quick chat, code review, or project discussion.</p>
                 </div>
               </div>
             </motion.div>
@@ -330,11 +330,11 @@ export default function EnhancedContact() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className="relative bg-background border border-blue-500/30 rounded-lg p-6">
                 <h3 className="text-xl font-bold text-blue-300 mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🔗</span>
+                  <span className="text-2xl"></span>
                   Get in Touch
                 </h3>
 
@@ -351,7 +351,7 @@ export default function EnhancedContact() {
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.05, y: -3 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`group/link p-4 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-lg hover:border-blue-400 transition-all text-center ${link.color}`}
+                      className={`group/link p-4 bg-gradient-to-br from-blue-500/10 to-blue-500/10 border border-blue-500/30 rounded-lg hover:border-blue-400 transition-all text-center ${link.color}`}
                     >
                       <div className="text-3xl mb-2 group-hover/link:scale-125 transition-transform">
                         {link.icon}
@@ -377,20 +377,20 @@ export default function EnhancedContact() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
         >
-          <motion.div whileHover={{ y: -5 }} className="group bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-400 transition-all">
-            <div className="text-3xl mb-3">⚡</div>
+          <motion.div whileHover={{ y: -5 }} className="group bg-gradient-to-br from-blue-500/10 to-blue-500/10 border border-blue-500/30 rounded-lg p-6 hover:border-blue-400 transition-all">
+            <div className="text-3xl mb-3"></div>
             <h4 className="text-lg font-semibold text-white mb-2">Quick Response</h4>
             <p className="text-gray-400 text-sm">I respond to most inquiries within 24 hours</p>
           </motion.div>
 
-          <motion.div whileHover={{ y: -5 }} className="group bg-gradient-to-br from-green-500/10 to-cyan-500/10 border border-green-500/30 rounded-lg p-6 hover:border-green-400 transition-all">
-            <div className="text-3xl mb-3">🚀</div>
+          <motion.div whileHover={{ y: -5 }} className="group bg-gradient-to-br from-blue-500/10 to-blue-500/10 border border-blue-500/30 rounded-lg p-6 hover:border-blue-400 transition-all">
+            <div className="text-3xl mb-3"></div>
             <h4 className="text-lg font-semibold text-white mb-2">Open to Opportunities</h4>
             <p className="text-gray-400 text-sm">Freelance projects, full-time roles, and collaborations</p>
           </motion.div>
 
           <motion.div whileHover={{ y: -5 }} className="group bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-6 hover:border-purple-400 transition-all">
-            <div className="text-3xl mb-3">💡</div>
+            <div className="text-3xl mb-3"></div>
             <h4 className="text-lg font-semibold text-white mb-2">Always Learning</h4>
             <p className="text-gray-400 text-sm">Happy to discuss new tech, ideas, and industry trends</p>
           </motion.div>
@@ -425,10 +425,10 @@ export default function EnhancedContact() {
                 style={{
                   left: '50%',
                   top: '50%',
-                  fontSize: ['🎉', '✨', '🚀', '💫', '⭐'][Math.floor(Math.random() * 5)]
+                  fontSize: ['🎉', '✨', '', '💫', '⭐'][Math.floor(Math.random() * 5)]
                 }}
               >
-                {['🎉', '✨', '🚀', '💫', '⭐'][Math.floor(Math.random() * 5)]}
+                {['🎉', '✨', '', '💫', '⭐'][Math.floor(Math.random() * 5)]}
               </motion.div>
             ))}
           </>

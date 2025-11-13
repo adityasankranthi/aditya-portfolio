@@ -279,8 +279,8 @@ const EnhancedProjects = () => {
                             whileTap={{ scale: 0.95 }}
                             className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                                 selectedCategory === category.key
-                                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black shadow-lg shadow-cyan-500/50'
-                                    : 'bg-slate-800/50 border border-cyan-400/30 text-text hover:border-cyan-400/60'
+                                    ? 'bg-gradient-to-r from-blue-500 to-blue-500 text-black shadow-lg shadow-blue-500/50'
+                                    : 'bg-slate-800/50 border border-blue-400/30 text-text hover:border-blue-400/60'
                             }`}
                         >
                             <span className="mr-2">{category.icon}</span>
@@ -304,7 +304,7 @@ const EnhancedProjects = () => {
                             >
                                 <motion.div
                                     whileHover={{ y: -8 }}
-                                    className="bg-gradient-to-br from-slate-900/50 to-slate-800/50 border border-cyan-400/20 rounded-lg p-6 h-full hover:border-cyan-400/50 transition-all hover:shadow-xl hover:shadow-cyan-400/20"
+                                    className="bg-gradient-to-br from-slate-900/50 to-slate-800/50 border border-blue-400/20 rounded-lg p-6 h-full hover:border-blue-400/50 transition-all hover:shadow-xl hover:shadow-blue-400/20"
                                 >
                                     {/* Header */}
                                     <div className="flex items-start justify-between mb-4">
@@ -331,8 +331,8 @@ const EnhancedProjects = () => {
                                     {/* Metrics Preview */}
                                     <div className="grid grid-cols-2 gap-3 mb-4">
                                         {project.metrics.slice(0, 2).map((metric, idx) => (
-                                            <div key={idx} className="bg-black/30 p-2 rounded border border-cyan-400/20">
-                                                <div className="text-cyan-400 font-bold text-sm">{metric.value}</div>
+                                            <div key={idx} className="bg-black/30 p-2 rounded border border-blue-400/20">
+                                                <div className="text-blue-400 font-bold text-sm">{metric.value}</div>
                                                 <div className="text-xs text-text-muted">{metric.label}</div>
                                             </div>
                                         ))}
@@ -341,12 +341,12 @@ const EnhancedProjects = () => {
                                     {/* Tech Stack */}
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {project.technologies.slice(0, 3).map((tech) => (
-                                            <span key={tech} className="text-xs bg-cyan-400/10 text-cyan-300 px-2 py-1 rounded border border-cyan-400/20">
+                                            <span key={tech} className="text-xs bg-blue-400/10 text-blue-300 px-2 py-1 rounded border border-blue-400/20">
                                                 {tech}
                                             </span>
                                         ))}
                                         {project.technologies.length > 3 && (
-                                            <span className="text-xs bg-cyan-400/10 text-cyan-300 px-2 py-1 rounded border border-cyan-400/20">
+                                            <span className="text-xs bg-blue-400/10 text-blue-300 px-2 py-1 rounded border border-blue-400/20">
                                                 +{project.technologies.length - 3}
                                             </span>
                                         )}
@@ -354,7 +354,7 @@ const EnhancedProjects = () => {
 
                                     {/* View Details Button */}
                                     <motion.div
-                                        className="text-cyan-400 text-sm font-semibold group-hover:translate-x-2 transition-transform flex items-center gap-2"
+                                        className="text-blue-400 text-sm font-semibold group-hover:translate-x-2 transition-transform flex items-center gap-2"
                                     >
                                         View Details
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -386,10 +386,10 @@ const EnhancedProjects = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-gradient-to-br from-slate-900 to-slate-800 border border-cyan-400/30 rounded-lg max-w-3xl max-h-[90vh] overflow-y-auto"
+                            className="bg-gradient-to-br from-slate-900 to-slate-800 border border-blue-400/30 rounded-lg max-w-3xl max-h-[90vh] overflow-y-auto"
                         >
                             {/* Header */}
-                            <div className="sticky top-0 bg-black/50 border-b border-cyan-400/30 px-8 py-6 flex items-start justify-between">
+                            <div className="sticky top-0 bg-black/50 border-b border-blue-400/30 px-8 py-6 flex items-start justify-between">
                                 <div>
                                     <div className="flex items-center gap-3 mb-2">
                                         <span className="text-4xl">{selectedProject.emoji}</span>
@@ -422,9 +422,9 @@ const EnhancedProjects = () => {
                                                 initial={{ opacity: 0, y: 10 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: idx * 0.05 }}
-                                                className="bg-black/30 border border-cyan-400/30 p-4 rounded-lg"
+                                                className="bg-black/30 border border-blue-400/30 p-4 rounded-lg"
                                             >
-                                                <div className="text-2xl font-bold text-cyan-400">{metric.value}</div>
+                                                <div className="text-2xl font-bold text-blue-400">{metric.value}</div>
                                                 <div className="text-sm text-text-muted">{metric.label}</div>
                                             </motion.div>
                                         ))}
@@ -443,7 +443,7 @@ const EnhancedProjects = () => {
                                                 transition={{ delay: idx * 0.05 }}
                                                 className="flex items-start gap-3 text-text-muted"
                                             >
-                                                <span className="text-cyan-400 mt-1">✓</span>
+                                                <span className="text-blue-400 mt-1">✓</span>
                                                 <span>{highlight}</span>
                                             </motion.li>
                                         ))}
@@ -459,7 +459,7 @@ const EnhancedProjects = () => {
                                                 key={tech}
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
-                                                className="bg-gradient-to-r from-cyan-400/20 to-blue-400/20 text-cyan-300 px-3 py-1.5 rounded-full text-sm border border-cyan-400/50"
+                                                className="bg-gradient-to-r from-blue-400/20 to-blue-400/20 text-blue-300 px-3 py-1.5 rounded-full text-sm border border-blue-400/50"
                                             >
                                                 {tech}
                                             </motion.span>
@@ -472,7 +472,7 @@ const EnhancedProjects = () => {
                                     <div>
                                         <motion.button
                                             onClick={() => setShowArchitecture(!showArchitecture)}
-                                            className="flex items-center gap-2 text-cyan-400 font-semibold mb-4 hover:text-cyan-300 transition-colors"
+                                            className="flex items-center gap-2 text-blue-400 font-semibold mb-4 hover:text-blue-300 transition-colors"
                                         >
                                             <svg className={`w-5 h-5 transition-transform ${showArchitecture ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -486,7 +486,7 @@ const EnhancedProjects = () => {
                                                     initial={{ opacity: 0, height: 0 }}
                                                     animate={{ opacity: 1, height: 'auto' }}
                                                     exit={{ opacity: 0, height: 0 }}
-                                                    className="bg-black/30 border border-cyan-400/30 p-4 rounded-lg space-y-3"
+                                                    className="bg-black/30 border border-blue-400/30 p-4 rounded-lg space-y-3"
                                                 >
                                                     <p className="text-text-muted text-sm">{selectedProject.architecture.description}</p>
                                                     <div className="space-y-2">
@@ -498,7 +498,7 @@ const EnhancedProjects = () => {
                                                                 transition={{ delay: idx * 0.05 }}
                                                                 className="flex items-start gap-3 text-sm text-text-muted"
                                                             >
-                                                                <span className="text-cyan-400 mt-0.5">→</span>
+                                                                <span className="text-blue-400 mt-0.5">→</span>
                                                                 <span>{layer}</span>
                                                             </motion.div>
                                                         ))}
@@ -510,14 +510,14 @@ const EnhancedProjects = () => {
                                 )}
 
                                 {/* CTA Links */}
-                                <div className="flex gap-4 pt-4 border-t border-cyan-400/20">
+                                <div className="flex gap-4 pt-4 border-t border-blue-400/20">
                                     {selectedProject.demoUrl && (
                                         <motion.a
                                             href={selectedProject.demoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
-                                            className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-bold py-2 px-4 rounded-lg text-center hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
+                                            className="flex-1 bg-gradient-to-r from-blue-500 to-blue-500 text-black font-bold py-2 px-4 rounded-lg text-center hover:shadow-lg hover:shadow-blue-500/50 transition-all"
                                         >
                                             👀 View Demo
                                         </motion.a>
@@ -528,7 +528,7 @@ const EnhancedProjects = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
-                                            className="flex-1 bg-slate-700 hover:bg-slate-600 text-text font-bold py-2 px-4 rounded-lg text-center transition-all border border-cyan-400/30"
+                                            className="flex-1 bg-slate-700 hover:bg-slate-600 text-text font-bold py-2 px-4 rounded-lg text-center transition-all border border-blue-400/30"
                                         >
                                             🐙 Source Code
                                         </motion.a>

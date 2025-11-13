@@ -55,19 +55,19 @@ const Header = () => {
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <a href="#about" onClick={(e) => handleLinkClick(e, '#about')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
                                     About
-                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                 </a>
                                 <a href="#experience" onClick={(e) => handleLinkClick(e, '#experience')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
                                     Experience
-                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                 </a>
                                 <a href="#portfolio" onClick={(e) => handleLinkClick(e, '#portfolio')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
                                     Portfolio
-                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                 </a>
                                 <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="text-text-muted hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative group">
                                     Contact
-                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                 </a>
                             </div>
                         </nav>

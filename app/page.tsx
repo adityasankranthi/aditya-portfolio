@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import TerminalHero from './components/TerminalHero';
+import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
-import InteractiveTimeline from './components/InteractiveTimeline';
 import EnhancedProjects from './components/EnhancedProjects';
-import SkillConstellation from './components/SkillConstellation';
+import Skills from './components/Skills';
 import HowIWork from './components/HowIWork';
 import EnhancedContact from './components/EnhancedContact';
 import StructuredData from './components/StructuredData';
@@ -64,13 +63,12 @@ export default function App() {
             <InteractiveCursor />
             <FloatingParticles />
             <Header />
-            <main className="bg-background">
-                <TerminalHero />
+            <main className="bg-slate-950">
+                <Hero />
                 <About />
                 <Experience />
-                <InteractiveTimeline />
                 <EnhancedProjects />
-                <SkillConstellation />
+                <Skills />
                 <HowIWork />
                 <EnhancedContact />
             </main>

@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #1e40af;
+    --secondary: #64748b;
+    --accent: #0ea5e9;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
 body {
-    background: linear-gradient(135deg, #0D0C1D 0%, #1a1a2e 50%, #0D0C1D 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     background-attachment: fixed;
-    color: #E0E0E0;
+    color: #e2e8f0;
     overflow-x: hidden;
 }
 

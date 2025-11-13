@@ -14,7 +14,7 @@ const About = () => (
             >
                 <div className="text-center mb-20">
                     <h2 className="text-4xl sm:text-5xl font-extrabold text-text">About Me</h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
                     <motion.div 
@@ -25,9 +25,9 @@ const About = () => (
                         transition={{ duration: 0.8 }}
                     >
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-2xl opacity-20 scale-110 pulse-glow"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-500 rounded-full blur-2xl opacity-20 scale-110 pulse-glow"></div>
                             <motion.div 
-                                className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-cyan-400/50"
+                                className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-blue-400/50"
                                 whileHover={{ scale: 1.05, rotate: 5 }}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
@@ -50,7 +50,7 @@ const About = () => (
                             transition={{ duration: 0.6, delay: 0.1 }}
                             className="text-lg text-text-muted leading-relaxed"
                         >
-                            Hello! I&apos;m Aditya, a software engineer with a global perspective, driven by a passion for building elegant and impactful digital solutions. My academic journey began at the <span className="text-cyan-400 font-semibold">University of Rome &quot;Tor Vergata&quot;</span> and culminated in a master&apos;s from the <span className="text-cyan-400 font-semibold">University of Wisconsin-Milwaukee</span>—the same alma mater as Microsoft&apos;s CEO, Satya Nadella.
+                            Hello! I&apos;m Aditya, a software engineer with a global perspective, driven by a passion for building elegant and impactful digital solutions. My academic journey began at the <span className="text-blue-400 font-semibold">University of Rome &quot;Tor Vergata&quot;</span> and culminated in a master&apos;s from the <span className="text-blue-400 font-semibold">University of Wisconsin-Milwaukee</span>—the same alma mater as Microsoft&apos;s CEO, Satya Nadella.
                         </motion.p>
                         <motion.p 
                             initial={{ opacity: 0, y: 10 }}

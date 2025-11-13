@@ -33,7 +33,7 @@ const InteractiveTimeline = () => {
             ],
             technologies: ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'AWS', 'Docker'],
             description: 'Building scalable microservices architecture. Leading full-stack development with focus on performance optimization.',
-            color: 'from-green-500 to-emerald-600',
+            color: 'from-blue-500 to-emerald-600',
         },
         {
             id: '2',
@@ -48,7 +48,7 @@ const InteractiveTimeline = () => {
             ],
             technologies: ['Node.js', 'MongoDB', 'React', 'AWS', 'Git'],
             description: 'Managed IT infrastructure and led digital transformation initiatives. Improved system reliability and performance.',
-            color: 'from-blue-500 to-cyan-600',
+            color: 'from-blue-500 to-blue-600',
         },
         {
             id: '3',
@@ -144,7 +144,7 @@ const InteractiveTimeline = () => {
                                 onClick={() => scroll('left')}
                                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-r from-background to-transparent p-3 hover:scale-110 transition-transform"
                             >
-                                <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                 </svg>
                             </motion.button>
@@ -161,7 +161,7 @@ const InteractiveTimeline = () => {
                                 onClick={() => scroll('right')}
                                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-l from-background to-transparent p-3 hover:scale-110 transition-transform"
                             >
-                                <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </motion.button>
@@ -188,22 +188,22 @@ const InteractiveTimeline = () => {
                                     whileHover={{ y: -8, scale: 1.02 }}
                                     className={`bg-gradient-to-br ${station.color} p-0.5 rounded-lg h-full transition-all ${
                                         selectedStation.id === station.id
-                                            ? 'ring-2 ring-cyan-400 shadow-2xl shadow-cyan-400/50'
-                                            : 'hover:shadow-xl hover:shadow-cyan-400/30'
+                                            ? 'ring-2 ring-blue-400 shadow-2xl shadow-blue-400/50'
+                                            : 'hover:shadow-xl hover:shadow-blue-400/30'
                                     }`}
                                 >
                                     <div className="bg-black/90 rounded-lg p-6 h-full flex flex-col">
                                         {/* Header with Icon */}
                                         <div className="flex items-start justify-between mb-4">
                                             <div className="text-4xl">{station.icon}</div>
-                                            <div className="text-xs bg-cyan-400/20 text-cyan-300 px-2 py-1 rounded">
+                                            <div className="text-xs bg-blue-400/20 text-blue-300 px-2 py-1 rounded">
                                                 {station.period}
                                             </div>
                                         </div>
 
                                         {/* Role & Company */}
                                         <h3 className="text-lg font-bold text-text mb-1">{station.role}</h3>
-                                        <p className="text-sm text-cyan-400 mb-4 font-semibold">{station.company}</p>
+                                        <p className="text-sm text-blue-400 mb-4 font-semibold">{station.company}</p>
 
                                         {/* Metrics Preview */}
                                         <div className="grid grid-cols-2 gap-2 mb-4">
@@ -211,9 +211,9 @@ const InteractiveTimeline = () => {
                                                 <motion.div
                                                     key={idx}
                                                     whileHover={{ scale: 1.05 }}
-                                                    className="bg-cyan-400/10 border border-cyan-400/30 p-2 rounded text-xs"
+                                                    className="bg-blue-400/10 border border-blue-400/30 p-2 rounded text-xs"
                                                 >
-                                                    <div className="text-cyan-300 font-bold text-sm">{metric.value}</div>
+                                                    <div className="text-blue-300 font-bold text-sm">{metric.value}</div>
                                                     <div className="text-text-muted text-xs">{metric.label}</div>
                                                 </motion.div>
                                             ))}
@@ -238,7 +238,7 @@ const InteractiveTimeline = () => {
 
                                         {/* Hover Indicator */}
                                         <motion.div
-                                            className="mt-4 text-center text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                                            className="mt-4 text-center text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
                                             animate={{ opacity: selectedStation.id === station.id ? 1 : 0 }}
                                         >
                                             Click for details
@@ -258,14 +258,14 @@ const InteractiveTimeline = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="mt-12 bg-gradient-to-r from-slate-900/50 to-slate-800/50 border border-cyan-400/20 rounded-lg p-8"
+                        className="mt-12 bg-gradient-to-r from-slate-900/50 to-slate-800/50 border border-blue-400/20 rounded-lg p-8"
                     >
                         {/* Detail Header */}
                         <div className="flex items-center gap-4 mb-6">
                             <div className="text-5xl">{selectedStation.icon}</div>
                             <div>
                                 <h3 className="text-2xl font-bold text-text">{selectedStation.role}</h3>
-                                <p className="text-cyan-400 font-semibold">{selectedStation.company}</p>
+                                <p className="text-blue-400 font-semibold">{selectedStation.company}</p>
                                 <p className="text-sm text-text-muted">{selectedStation.period}</p>
                             </div>
                         </div>
@@ -283,10 +283,10 @@ const InteractiveTimeline = () => {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: idx * 0.1 }}
-                                        className="bg-black/50 border border-cyan-400/30 p-4 rounded-lg"
+                                        className="bg-black/50 border border-blue-400/30 p-4 rounded-lg"
                                     >
                                         <motion.div
-                                            className="text-3xl font-bold text-cyan-400 mb-2"
+                                            className="text-3xl font-bold text-blue-400 mb-2"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: 0.3 + idx * 0.1 }}
@@ -309,7 +309,7 @@ const InteractiveTimeline = () => {
                                         key={tech}
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        className="bg-gradient-to-r from-cyan-400/20 to-blue-400/20 border border-cyan-400/50 text-cyan-300 px-3 py-1.5 rounded-full text-sm font-medium"
+                                        className="bg-gradient-to-r from-blue-400/20 to-blue-400/20 border border-blue-400/50 text-blue-300 px-3 py-1.5 rounded-full text-sm font-medium"
                                     >
                                         {tech}
                                     </motion.span>
@@ -327,7 +327,7 @@ const InteractiveTimeline = () => {
                             onClick={() => setSelectedStation(station)}
                             className={`h-2 rounded-full transition-all ${
                                 selectedStation.id === station.id
-                                    ? 'bg-cyan-400 w-8'
+                                    ? 'bg-blue-400 w-8'
                                     : 'bg-text-muted/30 w-2 hover:bg-text-muted/50'
                             }`}
                             whileHover={{ scale: 1.2 }}
