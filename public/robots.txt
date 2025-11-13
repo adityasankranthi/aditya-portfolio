@@ -1,0 +1,31 @@
+# Robots.txt for Aditya Sankranthi Portfolio
+# Allow search engines to crawl and index all content
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.next
+Disallow: *.json
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://aditya-portfolio.com/sitemap.xml
+
+# Common bots
+User-agent: MJ12bot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /

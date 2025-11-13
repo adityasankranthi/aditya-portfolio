@@ -2,19 +2,21 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import TerminalHero from './components/TerminalHero';
 import About from './components/About';
 import Experience from './components/Experience';
-import SkillsAndProjects from './components/SkillsAndProjects';
-import Contact from './components/Contact';
+import InteractiveTimeline from './components/InteractiveTimeline';
+import EnhancedProjects from './components/EnhancedProjects';
+import SkillConstellation from './components/SkillConstellation';
+import HowIWork from './components/HowIWork';
+import EnhancedContact from './components/EnhancedContact';
+import StructuredData from './components/StructuredData';
 import Footer from './components/Footer';
-import ProjectModal from './components/ProjectModal';
 import { InteractiveCursor, FloatingParticles, EmojiReaction, useEmojiReactions } from './components/InteractiveEffects';
+import InteractiveEffectsManager from './components/InteractiveEffects';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Project } from './types/index'; // Import the shared Project type
 
 export default function App() {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const { reactions, triggerReaction } = useEmojiReactions();
 
@@ -40,17 +42,6 @@ export default function App() {
         return () => window.removeEventListener('click', handleClick);
     }, [triggerReaction]);
 
-    const handleProjectClick = (project: Project) => {
-        setSelectedProject(project);
-        document.body.style.overflow = 'hidden';
-        triggerReaction(window.innerWidth / 2, window.innerHeight / 2);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedProject(null);
-        document.body.style.overflow = 'auto';
-    };
-
     if (isLoading) {
         return (
             <div className="fixed inset-0 bg-background flex items-center justify-center z-[100]">
@@ -69,27 +60,27 @@ export default function App() {
 
     return (
         <>
+            <StructuredData />
             <InteractiveCursor />
             <FloatingParticles />
             <Header />
             <main className="bg-background">
-                <Hero />
+                <TerminalHero />
                 <About />
                 <Experience />
-                <SkillsAndProjects onProjectClick={handleProjectClick} />
-                <Contact />
+                <InteractiveTimeline />
+                <EnhancedProjects />
+                <SkillConstellation />
+                <HowIWork />
+                <EnhancedContact />
             </main>
             <Footer />
             <AnimatePresence>
-                {selectedProject && (
-                    <ProjectModal project={selectedProject} onClose={handleCloseModal} />
-                )}
-            </AnimatePresence>
-            <AnimatePresence>
-                {reactions.map((reaction) => (
+                {reactions.map((reaction: { id: number; x: number; y: number; emoji: string }) => (
                     <EmojiReaction key={reaction.id} x={reaction.x} y={reaction.y} emoji={reaction.emoji} />
                 ))}
             </AnimatePresence>
+            <InteractiveEffectsManager />
         </>
     );
 }

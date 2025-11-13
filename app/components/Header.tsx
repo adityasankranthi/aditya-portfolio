@@ -14,6 +14,16 @@ const Header = () => {
         setIsOpen(false);
     };
 
+    const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        // Trigger the easter egg via the global function
+        if (typeof window !== 'undefined' && (window as any).triggerLogoEasterEgg) {
+            (window as any).triggerLogoEasterEgg();
+        }
+        // Also scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -38,7 +48,7 @@ const Header = () => {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex-shrink-0">
-                            <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-2xl font-bold text-accent hover:text-accent-hover transition-colors">AS</a>
+                            <a href="#home" onClick={handleLogoClick} className="text-2xl font-bold text-accent hover:text-accent-hover transition-colors cursor-pointer select-none">AS</a>
                         </div>
                         {/* Desktop Navigation */}
                         <nav className="hidden md:block">
